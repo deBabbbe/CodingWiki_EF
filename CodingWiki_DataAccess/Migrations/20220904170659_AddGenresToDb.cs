@@ -13,18 +13,18 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Title",
                 table: "Books",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "text");
 
             migrationBuilder.AlterColumn<string>(
                 name: "ISBN",
                 table: "Books",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "text");
 
             migrationBuilder.CreateTable(
                 name: "Genres",
@@ -32,7 +32,7 @@ namespace CodingWiki_DataAccess.Migrations
                 {
                     GenreId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GenreName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GenreName = table.Column<string>(type: "text", nullable: true),
                     Display = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -50,21 +50,21 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Title",
                 table: "Books",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: false,
                 defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
+                oldType: "text",
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "ISBN",
                 table: "Books",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: false,
                 defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
+                oldType: "text",
                 oldNullable: true);
         }
     }

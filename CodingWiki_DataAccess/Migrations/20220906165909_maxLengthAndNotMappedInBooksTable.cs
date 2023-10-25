@@ -13,12 +13,12 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "ISBN",
                 table: "Books",
-                type: "nvarchar(20)",
+                type: "text",
                 maxLength: 20,
                 nullable: false,
                 defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
+                oldType: "text",
                 oldNullable: true);
         }
 
@@ -28,10 +28,10 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "ISBN",
                 table: "Books",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
+                oldType: "text",
                 oldMaxLength: 20);
         }
     }

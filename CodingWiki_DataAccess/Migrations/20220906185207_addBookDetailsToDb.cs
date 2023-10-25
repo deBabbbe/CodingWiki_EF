@@ -18,7 +18,7 @@ namespace CodingWiki_DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfChapters = table.Column<int>(type: "int", nullable: false),
                     NumberOfPages = table.Column<int>(type: "int", nullable: false),
-                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Weight = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

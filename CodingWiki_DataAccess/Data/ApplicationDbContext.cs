@@ -1,12 +1,6 @@
 ﻿using CodingWiki_DataAccess.FluentConfig;
 using CodingWiki_Model.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodingWiki_DataAccess.Data
 {
@@ -23,19 +17,20 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Fluent_BookDetail> BookDetail_fluent { get; set; }
         public DbSet<Fluent_Book> Fluent_Books { get; set; }
         public DbSet<Fluent_Author> Fluent_Authors { get; set; }
-        public DbSet<Fluent_Publisher> Fluent_Publishers{ get; set; }
+        public DbSet<Fluent_Publisher> Fluent_Publishers { get; set; }
         public DbSet<Fluent_BookAuthorMap> Fluent_BookAuthorMaps { get; set; }
 
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-        //    options.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=CodingWiki;TrustServerCertificate=True;Trusted_Connection=True;")
-          //      .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name },LogLevel.Information);
+            //    options.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=CodingWiki;TrustServerCertificate=True;Trusted_Connection=True;")
+            //      .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name },LogLevel.Information);
+            options.UseNpgsql("Host=localhost;Username=postgres;Password=postgres;Port=5432;Database=CodingWikiOrig");
+            options.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name });
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -49,7 +44,7 @@ namespace CodingWiki_DataAccess.Data
             modelBuilder.ApplyConfiguration(new FluentPublisherConfig());
 
             modelBuilder.Entity<Book>().HasData(
-                new Book { BookId = 1, Title = "Spider without Duty", ISBN = "123B12", Price = 10.99m, Publisher_Id=1 },
+                new Book { BookId = 1, Title = "Spider without Duty", ISBN = "123B12", Price = 10.99m, Publisher_Id = 1 },
                 new Book { BookId = 2, Title = "Fortune of time", ISBN = "12123B12", Price = 11.99m, Publisher_Id = 1 }
             );
 

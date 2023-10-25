@@ -18,11 +18,11 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
                 table: "tb_genres",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: false,
                 defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
+                oldType: "text",
                 oldNullable: true);
         }
 
@@ -37,10 +37,10 @@ namespace CodingWiki_DataAccess.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
                 table: "tb_genres",
-                type: "nvarchar(max)",
+                type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "text");
         }
     }
 }
