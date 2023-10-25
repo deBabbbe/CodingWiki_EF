@@ -16,6 +16,7 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult Index()
         {
+            //_db.ChangeTracker.Entries();
             var objList = _db.Books.Include(u => u.Publisher)
                 .Include(u => u.BookAuthorMap).ThenInclude(u => u.Author).ToList();
             //List<Book> objList = _db.Books.ToList();
