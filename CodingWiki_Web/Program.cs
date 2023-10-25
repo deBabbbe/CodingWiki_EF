@@ -8,7 +8,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-    options.UseNpgsql("Host=localhost;Username=postgres;Password=postgres;Port=5432;Database=CodingWikiOrig");
+    options
+        .UseLazyLoadingProxies()
+        .UseNpgsql("Host=localhost;Username=postgres;Password=postgres;Port=5432;Database=CodingWikiOrig");
 });
 var app = builder.Build();
 
