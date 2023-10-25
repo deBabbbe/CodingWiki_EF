@@ -197,6 +197,16 @@ namespace CodingWiki_Web.Controllers
             var bookList4 = allBooks.Where(b => b.Price > 50).ToList();
 
 
+            var details = _db.BookDetails.Include(b => b.Book).First();
+            details.NumberOfChapters = 1000;
+            _db.BookDetails.Update(details);
+            _db.SaveChanges();
+
+            var details2 = _db.BookDetails.Include(b => b.Book).First();
+            details2.NumberOfChapters = 250;
+            _db.BookDetails.Attach(details2);
+            _db.SaveChanges();
+
             //var bookTemp = _db.Books.FirstOrDefault();
             //bookTemp.Price = 100;
 
