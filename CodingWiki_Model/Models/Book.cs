@@ -5,7 +5,6 @@ namespace CodingWiki_Model.Models
 {
     public class Book
     {
-        // [Key]
         public int BookId { get; set; }
         public string Title { get; set; }
         [MaxLength(20)]

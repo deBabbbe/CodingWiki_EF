@@ -42,10 +42,10 @@ namespace CodingWiki_Web.Controllers
 
             if (ModelState.IsValid)
             {
+                obj.BirthDate = obj.BirthDate.ToUniversalTime();
                 if (obj.Author_Id == 0)
                 {
                     //create
-                    obj.BirthDate = obj.BirthDate.ToUniversalTime();
                     await _db.Authors.AddAsync(obj);
                 }
                 else
