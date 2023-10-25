@@ -15,6 +15,7 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult Index()
         {
+            return RedirectToAction("Index", "Book");
             return View();
         }
 
