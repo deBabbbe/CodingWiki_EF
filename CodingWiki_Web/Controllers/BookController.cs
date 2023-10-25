@@ -84,14 +84,15 @@ namespace CodingWiki_Web.Controllers
             {
                 return NotFound();
             }
-            BookDetail obj = new();
 
             //edit
 
-            obj = _db.BookDetails.Include(u => u.Book).FirstOrDefault(u => u.Book_Id == id);
+            var obj = _db.BookDetails.Include(u => u.Book).FirstOrDefault(u => u.Book_Id == id);
             if (obj == null)
             {
-                return NotFound();
+                var book = _db.Books.Single(b => b.BookId == id);
+                book.BookDetail = new BookDetail();
+                _db.SaveChanges();
             }
             return View(obj);
         }
