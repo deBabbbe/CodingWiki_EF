@@ -1,8 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using CodingWiki_DataAccess.Data;
-using CodingWiki_Model.Models;
-using Microsoft.EntityFrameworkCore;
-using static System.Reflection.Metadata.BlobBuilder;
 
 Console.WriteLine("Hello, World!");
 

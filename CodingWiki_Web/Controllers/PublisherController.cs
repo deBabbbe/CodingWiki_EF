@@ -14,14 +14,14 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult Index()
         {
-            List<Publisher> objList = _db.Publishers.ToList();
+            var objList = _db.Publishers.ToList();
             return View(objList);
         }
 
         public IActionResult Upsert(int? id)
         {
             Publisher obj = new();
-            if (id == null || id == 0)
+            if (id is null or 0)
             {
                 //create
                 return View(obj);

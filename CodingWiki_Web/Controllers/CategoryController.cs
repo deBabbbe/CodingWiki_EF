@@ -14,14 +14,14 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult Index()
         {
-            List<Category> objList = _db.Categories.ToList();
+            var objList = _db.Categories.ToList();
             return View(objList);
         }
 
         public IActionResult Upsert(int? id)
         {
             Category obj = new();
-            if (id == null || id==0)
+            if (id is null or 0)
             {
                 //create
                 return View(obj);
@@ -74,7 +74,7 @@ namespace CodingWiki_Web.Controllers
         public IActionResult CreateMultiple2()
         {
             List<Category> categories = new();
-            for(int i = 1; i <= 2; i++)
+            for (var i = 1; i <= 2; i++)
             {
                 categories.Add(new Category { CategoryName = Guid.NewGuid().ToString() });
             }
@@ -86,7 +86,7 @@ namespace CodingWiki_Web.Controllers
         {
 
             List<Category> categories = new();
-            for (int i = 1; i <= 5; i++)
+            for (var i = 1; i <= 5; i++)
             {
                 categories.Add(new Category { CategoryName = Guid.NewGuid().ToString() });
             }
@@ -98,14 +98,14 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult RemoveMultiple2()
         {
-            List<Category> categories = _db.Categories.OrderByDescending(u=>u.CategoryId).Take(2).ToList();
+            var categories = _db.Categories.OrderByDescending(u => u.CategoryId).Take(2).ToList();
             _db.Categories.RemoveRange(categories);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
         public IActionResult RemoveMultiple5()
         {
-            List<Category> categories = _db.Categories.OrderByDescending(u => u.CategoryId).Take(5).ToList();
+            var categories = _db.Categories.OrderByDescending(u => u.CategoryId).Take(5).ToList();
             _db.Categories.RemoveRange(categories);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
