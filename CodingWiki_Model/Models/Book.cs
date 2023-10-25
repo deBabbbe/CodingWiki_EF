@@ -14,11 +14,11 @@ namespace CodingWiki_Model.Models
         [NotMapped]
         public string PriceRange { get; set; }
 
-        public virtual BookDetail BookDetail { get; set; }
+        public BookDetail BookDetail { get; set; }
         [ForeignKey("Publisher")]
         public int Publisher_Id { get; set; }
-        public virtual Publisher Publisher { get; set; }
+        public Publisher Publisher { get; set; }
 
-        public virtual List<BookAuthorMap> BookAuthorMap { get; set; }
+        public List<BookAuthorMap> BookAuthorMap { get; set; }
     }
 }

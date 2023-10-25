@@ -23,6 +23,6 @@ namespace CodingWiki_Model.Models
             }
         }
 
-        public virtual List<BookAuthorMap> BookAuthorMap { get; set; }
+        public List<BookAuthorMap> BookAuthorMap { get; set; }
     }
 }
