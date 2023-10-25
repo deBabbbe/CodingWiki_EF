@@ -14,7 +14,7 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult Index()
         {
-            var objList = _db.Categories.ToList();
+            var objList = _db.Categories.OrderBy(c => c.CategoryName).ToList();
             return View(objList);
         }
 
@@ -59,8 +59,7 @@ namespace CodingWiki_Web.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            Category obj = new();
-            obj = _db.Categories.FirstOrDefault(u => u.CategoryId == id);
+            var obj = _db.Categories.FirstOrDefault(u => u.CategoryId == id);
             if (obj == null)
             {
                 return NotFound();
@@ -68,6 +67,14 @@ namespace CodingWiki_Web.Controllers
 
             _db.Categories.Remove(obj);
             await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult DeleteAll()
+        {
+            _db.Categories.RemoveRange(_db.Categories);
+            _db.SaveChanges();
+
             return RedirectToAction(nameof(Index));
         }
 

@@ -4,10 +4,13 @@
 <br />
 <div class="border p-4 bg-white">
     <div class="row">
-        <div class="col-9">
+        <div class="col-6">
             <h2 class="text-info"> Category List</h2>
         </div>
 
+        <div class="col-3 text-right">
+            <a asp-action="DeleteAll" class="btn btn-danger form-control"> Delete All </a>
+        </div>
         <div class="col-3 text-right">
             <a asp-action="Upsert" class="btn btn-info form-control"> Create New </a>
         </div>

@@ -185,11 +185,16 @@ namespace CodingWiki_Web.Controllers
 
         public async Task<IActionResult> Playground()
         {
-            IEnumerable<Book> BookList1 = _db.Books;
-            var FilteredBook1 = BookList1.Where(b => b.Price > 50).ToList();
+            IEnumerable<Book> bookList1 = _db.Books;
+            var filteredBook1 = bookList1.Where(b => b.Price > 50).ToList();
 
-            IQueryable<Book> BookList2 = _db.Books;
-            var fileredBook2 = BookList2.Where(b => b.Price > 50).ToList();
+            IQueryable<Book> bookList2 = _db.Books;
+            var fileredBook2 = bookList2.Where(b => b.Price > 50).ToList();
+
+            var bookList3 = _db.Books.Where(b => b.Price > 50).ToList();
+
+            var allBooks = _db.Books;
+            var bookList4 = allBooks.Where(b => b.Price > 50).ToList();
 
 
             //var bookTemp = _db.Books.FirstOrDefault();
